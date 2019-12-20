@@ -10,5 +10,6 @@ ENV EASYRSA /usr/share/easy-rsa
 ENV EASYRSA_PKI $OPENVPN/pki
 ENV EASYRSA_VARS_FILE $OPENVPN/vars
 ENV PATH $PATH:$EASYRSA
+WORKDIR /etc/openvpn/
 
 CMD ["easyrsa"]
