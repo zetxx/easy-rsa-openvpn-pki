@@ -1,4 +1,4 @@
-# easy-rsa-openvpn-pki
+# [easy-rsa-openvpn-pki](https://wiki.archlinux.org/index.php/Easy-RSA)
 
 ## Build
 
