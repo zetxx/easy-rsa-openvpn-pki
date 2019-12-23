@@ -6,9 +6,7 @@ docker run --rm -it pki bash
 
 ## Build
 
-docker rmi pki
-
-docker build -t pki .
+docker rmi pki && docker build -t pki .
 
 
 

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+easyrsa init-pki && \
+dd if=/dev/urandom of=pki/.rnd bs=256 count=1 && \
+easyrsa gen-req server123 nopass && \
+openvpn --genkey --secret ta.key
