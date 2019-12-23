@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ]
   then
-    echo "No arguments supplied, client name required"
+    echo "No arguments supplied, name required"
 fi
 
 easyrsa init-pki && \

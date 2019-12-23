@@ -1,6 +1,9 @@
 #!/bin/sh
 
-easyrsa init-pki && \
-dd if=/dev/urandom of=pki/.rnd bs=256 count=1 && \
-easyrsa --batch gen-req server123 nopass && \
-openvpn --genkey --secret ta.key
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied, name required"
+fi
+
+easyrsa import-req ./keys/reqs/$1.req $1 && \
+easyrsa sign-req server $1
