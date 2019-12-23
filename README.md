@@ -1,31 +1,19 @@
 # easy-rsa-openvpn-pki
 
-## look arownd
-
-docker run --rm -it pki bash
-
 ## Build
 
 docker rmi pki && docker build -t pki .
 
+## look arownd
 
+docker run --rm -it pki bash
 
-### CA
+## Init ca
 
-easyrsa init-pki
-dd if=/dev/urandom of=pki/.rnd bs=256 count=1
-easyrsa build-ca nopass
+docker run --rm -it \
+-v ${PWD}:/etc/openvpn/pki \
+pki
 
-### SERVER
+## Init server
 
-easyrsa init-pki
-dd if=/dev/urandom of=pki/.rnd bs=256 count=1
-easyrsa gen-req server123 nopass
-openvpn --genkey --secret ta.key
-
-### CLIENT
-
-easyrsa init-pki
-dd if=/dev/urandom of=pki/.rnd bs=256 count=1
-easyrsa gen-req server123 nopass
-openvpn --genkey --secret ta.key
+## Init client
