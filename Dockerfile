@@ -27,8 +27,8 @@ WORKDIR /etc/openvpn/
 RUN apk add --update openvpn bash easy-rsa && \
     rm -f /var/cache/apk/* && \
     chmod +x ./init.ca && chmod +x ./init.server && chmod +x ./init.client && \
-    mkdir ./pki
+    mkdir ./keys
 
-VOLUME ["/etc/openvpn/pki"]
+VOLUME ["/etc/openvpn/keys"]
 
 CMD ["./init.ca"]

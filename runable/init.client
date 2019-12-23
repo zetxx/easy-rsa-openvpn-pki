@@ -1,5 +1,12 @@
 #!/bin/sh
 
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied, client name required"
+fi
+
 easyrsa init-pki && \
 dd if=/dev/urandom of=pki/.rnd bs=256 count=1 && \
-easyrsa --batch gen-req client1 nopass
+easyrsa --batch gen-req $1 nopass && \
+cp -R ./pki/* ./keys/ && \
+chmod 0777 -R ./keys
