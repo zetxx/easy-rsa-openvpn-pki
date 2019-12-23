@@ -5,5 +5,6 @@ if [ $# -eq 0 ]
     echo "No arguments supplied, name required"
 fi
 
-easyrsa import-req ./keys/reqs/$1.req $1 && \
-easyrsa sign-req client $1
+export EASYRSA_PKI=$OPENVPN/$PKI_DIRNAME
+
+easyrsa --batch sign-req client $1
