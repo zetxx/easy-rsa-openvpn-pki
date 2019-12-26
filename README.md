@@ -6,7 +6,7 @@
 docker rmi -f pki && docker build -t pki .
 ```
 
-## look arownd
+## look around
 
 ```bash
 docker run --rm -it pki bash
@@ -30,7 +30,7 @@ docker run --rm -it -v ${PWD}/server:/etc/openvpn/keys pki ./init.server test-sr
 docker run --rm -it -v ${PWD}/client:/etc/openvpn/keys pki ./init.client abc
 ```
 
-## ca, server and client
+## ca, server and client, then sign
 
 ```bash
 rm -rf ./ca && rm -rf ./server && rm -rf ./client && \
