@@ -5,6 +5,8 @@ if [ $# -eq 0 ]
     echo "No arguments supplied, name required"
 fi
 
+export EASYRSA_REQ_CN=$1.$EASYRSA_REQ_CN
+
 easyrsa init-pki && \
 dd if=/dev/urandom of=pki/.rnd bs=256 count=1 && \
 easyrsa --batch gen-req $1 nopass && \
