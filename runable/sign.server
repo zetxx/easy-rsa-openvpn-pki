@@ -8,3 +8,4 @@ fi
 export EASYRSA_PKI=$OPENVPN/$PKI_DIRNAME
 
 easyrsa --batch sign-req server $1
+chmod 0777 -R $EASYRSA_PKI
