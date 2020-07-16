@@ -9,7 +9,7 @@ WORKDIR /etc/openvpn/
 
 COPY ./runable/* /etc/openvpn/
 RUN chmod +x ./init.ca && chmod +x ./init.server && chmod +x ./init.client && chmod +x ./sign.client && chmod +x ./sign.server && \
-    mkdir ./keys
+    mkdir ./keys && cp /usr/share/easy-rsa/vars.example ./keys/vars
 
 ENV PKI_DIRNAME pki
 ENV OPENVPN /etc/openvpn
