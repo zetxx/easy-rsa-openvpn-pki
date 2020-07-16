@@ -9,7 +9,7 @@ WORKDIR /etc/openvpn/
 
 COPY ./runable/* /etc/openvpn/
 RUN chmod +x ./init.ca && chmod +x ./init.server && chmod +x ./init.client && chmod +x ./sign.client && chmod +x ./sign.server && \
-    mkdir ./keys && cp /usr/share/easy-rsa/vars.example ./keys/vars
+    mkdir ./keys
 
 ENV PKI_DIRNAME pki
 ENV OPENVPN /etc/openvpn
@@ -29,6 +29,8 @@ ENV EASYRSA_CA_EXPIRE 8000
 ENV EASYRSA_CERT_EXPIRE 4000
 ENV EASYRSA_CRL_DAYS 4000
 ENV EASYRSA_REQ_CN vpn.belogradchik.biz
+
+RUN cp /usr/share/easy-rsa/vars.example ${OPENVPN}/vars
 
 VOLUME ["/etc/openvpn/keys"]
 
